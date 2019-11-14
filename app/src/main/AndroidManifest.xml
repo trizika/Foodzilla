@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Registration"></activity>
+        <activity android:name=".ReportSpoting"></activity>
+        <activity android:name=".SpottingInfo" />
+        <activity android:name=".CreateEvent" />
+        <activity android:name=".EventDetails" />
+        <activity android:name=".RsvpdEvents" />
+        <activity android:name=".HostedEvents" />
+        <activity android:name=".AvailableEvents" />
+        <activity android:name=".MyEvents" />
+        <activity android:name=".SpottingMap" />
+        <activity android:name=".Registration" />
         <activity android:name=".Spottings" />
         <activity android:name=".Events" />
         <activity android:name=".MainActivity">
