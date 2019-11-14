@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Spottings"></activity>
+        <activity android:name=".Registration"></activity>
+        <activity android:name=".Spottings" />
         <activity android:name=".Events" />
         <activity android:name=".MainActivity">
             <intent-filter>
