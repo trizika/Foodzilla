@@ -1,5 +1,6 @@
 package com.example.foodzilla;
 
+//cant commit
 public class EventClass {
     String eventCreator;
     String eventSignedUpUser;
