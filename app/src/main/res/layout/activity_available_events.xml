@@ -12,10 +12,9 @@
         android:layout_height="35dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.306"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.109"
+        app:layout_constraintVertical_bias="0.077"
         tools:text="My Events" />
 
     <TextView
@@ -35,11 +34,39 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonHostanEventAvEvent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="295dp" />
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="184dp"
+        android:layout_marginEnd="134dp"
+        android:layout_marginBottom="388dp"
+        android:text="Host an Event"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonMyEventsAvEvents" />
+
+    <TextView
+        android:id="@+id/textViewRSVP'dEventAvEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="223dp"
+        android:layout_marginEnd="295dp"
+        android:layout_marginBottom="329dp"
+        android:text="RSVP'd Event"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHostedEventsAvEvents" />
+
+    <Button
+        android:id="@+id/buttonRSVPAvEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RSVP"
+        tools:layout_editor_absoluteX="173dp"
+        tools:layout_editor_absoluteY="580dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
