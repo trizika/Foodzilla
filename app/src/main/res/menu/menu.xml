@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemHome"
+        android:icon="@android:drawable/ic_notification_overlay"
+        android:title="Home" />
+    <item
+        android:id="@+id/itemCalendar"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="Calendar" />
+    <item
+        android:id="@+id/ItemProfile"
+        android:icon="@android:drawable/stat_sys_phone_call_forward"
+        android:title="Profile" />
+</menu>
