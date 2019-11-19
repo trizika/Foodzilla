@@ -77,9 +77,10 @@ Button buttonLoginmain, buttonRegistermain;
                           if (task.isSuccessful()) {
                               Intent landingintent = new Intent(MainActivity.this, SpottingMap.class);
                               startActivity(landingintent);
+                              Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
 
                           } else {
-                              // If sign in fails, display a message to the user.
+                             Toast.makeText(MainActivity.this, "LogIn Failed", Toast.LENGTH_SHORT).show();
 
                           }
 
