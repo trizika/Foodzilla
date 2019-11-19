@@ -1,5 +1,6 @@
 package com.example.foodzilla;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,6 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -46,26 +52,39 @@ Button buttonLoginmain, buttonRegistermain;
 
       if (view == buttonRegistermain){
           mAuth.createUserWithEmailAndPassword(email, password)
-                  .addOnCompleteListener(this, (task) --> {
-          if (task.isSuccessful()) {
-              Toast.makeText(MainActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-              Intent mainIntent = new Intent(MainActivity.this, SpottingMap.class);
-          } else {
-              Toast.makeText(MainActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
-          }
+                  .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                      @Override
+                      public void onComplete(@NonNull Task<AuthResult> task) {
+                          if (task.isSuccessful()) {
+                              Toast.makeText(MainActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                              Intent mainIntent = new Intent(MainActivity.this, SpottingMap.class);
+                              startActivity(mainIntent);
+                          } else {
+                              Toast.makeText(MainActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
 
-          Intent landingIntent = new Intent(this, SpottingMap.class);
-          startActivity(landingIntent);
+                          }
 
+                          // ...
+                      }
+                  });
 
-          else if (view == buttonLoginmain) {
-              mAuth.signInWithEmailAndPassword(email, password)
-                      .addOnCompleteListener(this, "Login Unsuccessful", Toast.LENGTH_SHORT).show();
-          }
-          });
+      } else if (view == buttonLoginmain) {
 
-          Intent landingintent = new Intent(this, SpottingMap.class);
-          startActivity(landingintent);
+          mAuth.signInWithEmailAndPassword(email, password)
+                  .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                      @Override
+                      public void onComplete(@NonNull Task<AuthResult> task) {
+                          if (task.isSuccessful()) {
+                              Intent landingintent = new Intent(MainActivity.this, SpottingMap.class);
+                              startActivity(landingintent);
 
-    }
+                          } else {
+                              // If sign in fails, display a message to the user.
+
+                          }
+
+                      }
+                  });
+
+      }
 }
