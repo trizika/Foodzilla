@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "353457826722",
+    "firebase_url": "https://foodzilla-f6960.firebaseio.com",
+    "project_id": "foodzilla-f6960",
+    "storage_bucket": "foodzilla-f6960.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353457826722:android:5f6d4c133ed6f8a13b60fb",
+        "android_client_info": {
+          "package_name": "com.example.foodzilla"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353457826722-4r0k0hl6o1vd5huleo0j6uo9s5eo2h50.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDthPcxcbpQsrS9r8II1qHRn6vEEkxYZ44"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353457826722-4r0k0hl6o1vd5huleo0j6uo9s5eo2h50.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353457826722:android:2e306d3da8b6bd833b60fb",
+        "android_client_info": {
+          "package_name": "com.example.foodzilla2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353457826722-4r0k0hl6o1vd5huleo0j6uo9s5eo2h50.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDthPcxcbpQsrS9r8II1qHRn6vEEkxYZ44"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353457826722-4r0k0hl6o1vd5huleo0j6uo9s5eo2h50.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,4 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".ReportSpoting">
 
+    <Button
+        android:id="@+id/buttonSubmitFoodReportSpotting"
+        android:layout_width="193dp"
+        android:layout_height="64dp"
+        android:text="Submit Food"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.89" />
+
+    <EditText
+        android:id="@+id/editTextLocationDetailsReportSpotting"
+        android:layout_width="264dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:hint="Enter details about the location"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSubmitFoodReportSpotting"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.887" />
 </androidx.constraintlayout.widget.ConstraintLayout>
