@@ -18,9 +18,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-TextView textViewfoodzillamain;
-EditText editTextemailmain, editTextpasswordmain;
-Button buttonLoginmain, buttonRegistermain;
+    TextView textViewfoodzillamain;
+    EditText editTextemailmain, editTextpasswordmain;
+    Button buttonLoginmain, buttonRegistermain;
 
     private FirebaseAuth mAuth;
 
@@ -29,17 +29,16 @@ Button buttonLoginmain, buttonRegistermain;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-     textViewfoodzillamain = findViewById(R.id.textVieweventdateedetails);
-     editTextemailmain = findViewById(R.id.editTextemailmain);
-     editTextpasswordmain = findViewById(R.id.editTextpasswordmain);
-     buttonLoginmain = findViewById(R.id.buttonLoginmain);
-     buttonRegistermain = findViewById(R.id.buttonRegistermain);
+        textViewfoodzillamain = findViewById(R.id.textVieweventdateedetails);
+        editTextemailmain = findViewById(R.id.editTextemailmain);
+        editTextpasswordmain = findViewById(R.id.editTextpasswordmain);
+        buttonLoginmain = findViewById(R.id.buttonLoginmain);
+        buttonRegistermain = findViewById(R.id.buttonRegistermain);
 
-     buttonRegistermain.setOnClickListener(this);
-     buttonLoginmain.setOnClickListener(this);
+        buttonRegistermain.setOnClickListener(this);
+        buttonLoginmain.setOnClickListener(this);
 
- mAuth = FirebaseAuth.getInstance();
-
+        mAuth = FirebaseAuth.getInstance();
 
 
     }
@@ -47,45 +46,46 @@ Button buttonLoginmain, buttonRegistermain;
     @Override
     public void onClick(View view) {
 
-      String email = editTextemailmain.getText().toString();
-      String password = editTextpasswordmain.getText().toString();
+        String email = editTextemailmain.getText().toString();
+        String password = editTextpasswordmain.getText().toString();
 
-      if (view == buttonRegistermain){
-          mAuth.createUserWithEmailAndPassword(email, password)
-                  .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                      @Override
-                      public void onComplete(@NonNull Task<AuthResult> task) {
-                          if (task.isSuccessful()) {
-                              Toast.makeText(MainActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                              Intent mainIntent = new Intent(MainActivity.this, SpottingMap.class);
-                              startActivity(mainIntent);
-                          } else {
-                              Toast.makeText(MainActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+        if (view == buttonRegistermain) {
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(MainActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                Intent mainIntent = new Intent(MainActivity.this, SpottingMap.class);
+                                startActivity(mainIntent);
+                            } else {
+                                Toast.makeText(MainActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
 
-                          }
+                            }
 
-                          // ...
-                      }
-                  });
+                            // ...
+                        }
+                    });
 
-      } else if (view == buttonLoginmain) {
+        } else if (view == buttonLoginmain) {
 
-          mAuth.signInWithEmailAndPassword(email, password)
-                  .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                      @Override
-                      public void onComplete(@NonNull Task<AuthResult> task) {
-                          if (task.isSuccessful()) {
-                              Intent landingintent = new Intent(MainActivity.this, SpottingMap.class);
-                              startActivity(landingintent);
-                              Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Intent landingintent = new Intent(MainActivity.this, SpottingMap.class);
+                                startActivity(landingintent);
+                                Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
 
-                          } else {
-                             Toast.makeText(MainActivity.this, "LogIn Failed", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(MainActivity.this, "LogIn Failed", Toast.LENGTH_SHORT).show();
 
-                          }
+                            }
 
-                      }
-                  });
+                        }
+                    });
 
-      }
+        }
+    }
 }
