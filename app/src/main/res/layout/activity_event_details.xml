@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EventDetails">
-    dasd
+
     <TextView
         android:id="@+id/textVieweventdetailsedetails"
         android:layout_width="wrap_content"
