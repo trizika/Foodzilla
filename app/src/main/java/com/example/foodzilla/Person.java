@@ -2,6 +2,7 @@ package com.example.foodzilla;
 
 import android.widget.Button;
 
+//user class
 public class Person {
 
     String firstname;
