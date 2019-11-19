@@ -1,5 +1,5 @@
 package com.example.foodzilla;
-//.
+//..
 public class FoodSpottingsClass {
     String location;
     Byte picture;
