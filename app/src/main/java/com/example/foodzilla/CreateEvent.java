@@ -14,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class CreateEvent extends AppCompatActivity implements View.OnClickListener {
 
-    TextView textViewhosteventcevent;
+    TextView textViewhosteventcevent, textVieweventnamecevent, textVieweventdatecevent, textVieweventtimecevent, textVieweventlocationcevent, textVieweventcapacitycevent, textVieweventinfocevent;
     EditText editTexteventnamecevent, editTexteventdatecevent, editTexteventtimecevent, editTexteventlocationcevent, editTexteventcapacitycevent, editTexteventinfocevent;
     Button buttonSubmiteventcevent;
 
@@ -27,13 +27,22 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
 
 
         textViewhosteventcevent = findViewById(R.id.textViewhosteventcevent);
+        textVieweventnamecevent = findViewById(R.id.textVieweventnamecevent);
+        textVieweventcapacitycevent = findViewById(R.id.textVieweventcapacitycevent);
+        textVieweventinfocevent = findViewById(R.id.textVieweventinfocevent);
+        textVieweventdatecevent = findViewById(R.id.textVieweventdatecevent);
+        textVieweventtimecevent = findViewById(R.id.textVieweventtimecevent);
+        textVieweventlocationcevent = findViewById(R.id.textVieweventlocationcevent);
+
         editTexteventdatecevent = findViewById(R.id.editTexteventdatecevent);
         editTexteventnamecevent = findViewById(R.id.editTexteventnamecevent);
         editTexteventtimecevent = findViewById(R.id.editTexteventtimecevent);
         editTexteventlocationcevent = findViewById(R.id.editTexteventlocationcevent);
         editTexteventcapacitycevent = findViewById(R.id.editTexteventcapacitycevent);
         editTexteventinfocevent = findViewById(R.id.editTexteventinfocevent);
+
         buttonSubmiteventcevent = findViewById(R.id.buttonSubmiteventcevent);
+
 
         buttonSubmiteventcevent.setOnClickListener(this);
 

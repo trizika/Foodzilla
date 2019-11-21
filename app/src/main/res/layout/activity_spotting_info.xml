@@ -6,4 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".SpottingInfo">
 
+    <TextView
+        android:id="@+id/textViewSpottinginfosinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="61dp"
+        android:text="Spotting Info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewspottingpicsinfo"
+        android:layout_width="228dp"
+        android:layout_height="286dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="144dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/textViewspottinglocationsinfo"
+        android:layout_width="182dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewspottingpicsinfo" />
+
+    <TextView
+        android:id="@+id/textViewwarningsinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="16dp"
+        android:text="Food Spottings Expire After 2 Hours"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSpottinginfosinfo" />
+
+    <Button
+        android:id="@+id/buttonGetdirectionssinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="28dp"
+        android:text="Get Directions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewspottinglocationsinfo" />
+
+    <Button
+        android:id="@+id/buttonReportnofoodleftsinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="28dp"
+        android:text="Report No Food Left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGetdirectionssinfo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
