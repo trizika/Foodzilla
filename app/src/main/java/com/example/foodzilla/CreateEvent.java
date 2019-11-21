@@ -9,14 +9,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CreateEvent extends AppCompatActivity implements View.OnClickListener {
 
-   TextView textViewhosteventcevent;
+    TextView textViewhosteventcevent;
     EditText editTexteventnamecevent, editTexteventdatecevent, editTexteventtimecevent, editTexteventlocationcevent, editTexteventcapacitycevent, editTexteventinfocevent;
     Button buttonSubmiteventcevent;
 
-private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,7 @@ private FirebaseAuth mAuth;
 
         buttonSubmiteventcevent.setOnClickListener(this);
 
-mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
 
     }
@@ -43,12 +45,26 @@ mAuth = FirebaseAuth.getInstance();
     @Override
     public void onClick(View view) {
 
-    String eventdate = editTexteventdatecevent.getText().toString();
-    String eventname = editTexteventnamecevent.getText().toString();
-    String eventtime = editTexteventtimecevent.getText().toString();
-    String eventlocation = editTexteventlocationcevent.getText().toString();
-    String 
+        String eventdate = editTexteventdatecevent.getText().toString();
+        String eventname = editTexteventnamecevent.getText().toString();
+        String eventtime = editTexteventtimecevent.getText().toString();
+        String eventlocation = editTexteventlocationcevent.getText().toString();
+        String eventcapacity = editTexteventcapacitycevent.getText().toString();
+        String eventinfo = editTexteventinfocevent.getText().toString();
 
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Events");
+
+
+        if (view == buttonSubmiteventcevent) {
+
+            EventClass newEvent = new EventClass()
+
+
+
+
+
+        }
     }
 }
