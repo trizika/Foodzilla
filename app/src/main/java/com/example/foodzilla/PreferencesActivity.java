@@ -29,7 +29,7 @@ public class PreferencesActivity extends AppCompatActivity implements View.OnCli
         buttonLocationNo.setOnClickListener(this);
 
     }
-//.
+//..
     @Override
     public void onClick(View view) {
 
