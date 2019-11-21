@@ -1,13 +1,14 @@
 package com.example.foodzilla;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MyEvents extends AppCompatActivity {
 
 
-    button buttonNOTHINGMyEvents, button buttonSwitchAvailableEvents;
+    Button buttonNOTHINGMyEvents, buttonSwitchMenuAv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +16,8 @@ public class MyEvents extends AppCompatActivity {
         setContentView(R.layout.activity_my_events);
 
         buttonNOTHINGMyEvents = findViewById(R.id.buttonMyEventsCr);
+        buttonSwitchMenuAv = findViewById(R.id.buttonAvailableEventsCr);
+
 
     }
 }
