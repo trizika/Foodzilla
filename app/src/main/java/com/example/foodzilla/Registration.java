@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Registration extends AppCompatActivity implements View.OnClickListener {
 
 
@@ -33,7 +36,17 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
+        FirebaseDatabase database =  FirebaseDatabase.getInstance();
+
+        final DatabaseReference myref = database.getReference("Users");
+
+
         if (view == submitbuttonreg) {
+
+
+            Person person1 = new Person(editTextfnamereg.getText().toString(), editTextlnamereg.getText().toString(), editTextemailreg.getText().toString());
+
+            myref.push().setValue(person1);
 
 
             Intent intent1 = new Intent(this, SpottingMap.class);
