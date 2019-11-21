@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class PreferencesActivity extends AppCompatActivity implements View.OnClickListener {
     TextView textViewLocation, textViewNotifications;
     Button buttonLocationYes,buttonLocationNo, buttonNotificationYes, buttonNotificationNo;
-
+//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
