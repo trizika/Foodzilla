@@ -30,9 +30,11 @@ tools:context=".CreateEvent">
         android:id="@+id/textVieweventdatecevent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="45dp"
         android:text="Event Date"
-        tools:layout_editor_absoluteX="68dp"
-        tools:layout_editor_absoluteY="200dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textVieweventnamecevent" />
 
     <TextView
         android:id="@+id/textVieweventtimecevent"
@@ -128,5 +130,26 @@ tools:context=".CreateEvent">
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/textVieweventinfocevent"
         app:layout_constraintTop_toBottomOf="@+id/editTexteventlocationcevent" />
+
+    <TextView
+        android:id="@+id/textVieweventcapacitycevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="36dp"
+        android:text="Event Capacity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textVieweventinfocevent" />
+
+    <EditText
+        android:id="@+id/editTexteventcapacitycevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/textVieweventcapacitycevent"
+        app:layout_constraintTop_toBottomOf="@+id/editTexteventinfocevent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
