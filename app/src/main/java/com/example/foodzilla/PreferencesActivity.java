@@ -33,9 +33,36 @@ public class PreferencesActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
 
-        if (view = )
+        if (view == buttonLocationYes) {
 
-            else if (view = )
+            //track the users location...ask sanjeev how to do this
 
+
+        }
+
+        else if (view == buttonLocationNo) {
+
+
+            //do nothing
+
+
+        }
+
+
+        if (view == buttonNotificationYes) {
+
+
+            //allow the user to receive notifications..again ask sanjeev how to do this
+
+
+        }
+
+        else if (view == buttonNotificationNo) {
+
+
+            //do nothing
+
+
+        }
     }
 }
