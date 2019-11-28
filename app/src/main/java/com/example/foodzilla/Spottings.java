@@ -2,6 +2,7 @@ package com.example.foodzilla;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,13 +35,16 @@ public class Spottings extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
+        String spottingpic = imageViewSpottingPicReportSpotting
+        // how do i getImage? instead of GetText
+        String spottinglocation = editTextLocationDetailsReportSpotting.getText().toString();
+
         if (view == buttonSubmitFoodReportSpotting) {
-           // how do i getImage? instead of GetText
-            String spottingpic = imageViewSpottingPicReportSpotting
-           String spottinglocation = editTextLocationDetailsReportSpotting.getText().toString();
 
+            // submit that food spotting to the spotting database
 
-            // submit that food spotting to the spotting database then return to spotting map page
+            Intent landingintent = new Intent (SpottingsActivity.this, SpottingMap.class);
+            startActivity(landingintent);
         }
 
     }
