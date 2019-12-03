@@ -23,7 +23,6 @@
         <activity android:name=".MyEvents" />
         <activity android:name=".SpottingMap" />
         <activity android:name=".Registration" />
-        <activity android:name=".Spottings" />
         <activity android:name=".Events" />
         <activity android:name=".MainActivity">
             <intent-filter>
