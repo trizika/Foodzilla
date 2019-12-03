@@ -89,7 +89,7 @@
         app:layout_constraintVertical_bias="0.746" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewEName1"
         android:layout_width="141dp"
         android:layout_height="77dp"
         android:text="TextView"
@@ -101,7 +101,7 @@
         app:layout_constraintVertical_bias="0.237" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewEName3"
         android:layout_width="141dp"
         android:layout_height="77dp"
         android:text="TextView"
@@ -113,7 +113,7 @@
         app:layout_constraintVertical_bias="0.571" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textViewEName4"
         android:layout_width="141dp"
         android:layout_height="77dp"
         android:text="TextView"
@@ -125,7 +125,7 @@
         app:layout_constraintVertical_bias="0.737" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textViewEDate3"
         android:layout_width="54dp"
         android:layout_height="71dp"
         android:text="TextView"
@@ -137,7 +137,7 @@
         app:layout_constraintVertical_bias="0.566" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textViewEDate4"
         android:layout_width="54dp"
         android:layout_height="71dp"
         android:text="TextView"
@@ -149,7 +149,7 @@
         app:layout_constraintVertical_bias="0.73" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textviewEDate1"
         android:layout_width="54dp"
         android:layout_height="71dp"
         android:text="TextView"
