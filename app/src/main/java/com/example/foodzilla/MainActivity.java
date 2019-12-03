@@ -50,22 +50,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String password = editTextpasswordmain.getText().toString();
 
         if (view == buttonRegistermain) {
-            mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(MainActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                                Intent mainIntent = new Intent(MainActivity.this, SpottingMap.class);
-                                startActivity(mainIntent);
-                            } else {
-                                Toast.makeText(MainActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
-
-                            }
-
-                            // ...
-                        }
-                    });
+            Intent landingintent = new Intent(MainActivity.this, Registration.class);
+            startActivity(landingintent);
 
         } else if (view == buttonLoginmain) {
 
