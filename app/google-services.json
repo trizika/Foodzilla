@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "353457826722-7da2iabjffq8lu268r91a31d3a0hjvmh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.foodzilla",
+            "certificate_hash": "b66cd14d1edd59f3ee9867a2436996de096d3f3e"
+          }
+        },
+        {
           "client_id": "353457826722-sfeptvd7nlr6f8v140ree12d1hd5epn5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

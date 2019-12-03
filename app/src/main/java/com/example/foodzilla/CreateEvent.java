@@ -68,7 +68,7 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
 
         if (view == buttonSubmiteventcevent) {
 
-            EventClass newEvent = new EventClass()
+            EventClass newEvent = new EventClass
 
 
 
