@@ -10,8 +10,4 @@
         android:id="@+id/itemCalendar"
         android:icon="@android:drawable/btn_star_big_on"
         android:title="Calendar" />
-    <item
-        android:id="@+id/ItemProfile"
-        android:icon="@android:drawable/stat_sys_phone_call_forward"
-        android:title="Profile" />
 </menu>
