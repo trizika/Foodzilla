@@ -18,7 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ReportSpotting extends AppCompatActivity implements View.OnClickListener {
-    EditText editTextLocationDetailsReportSpotting;
+    EditText editTextLocationDetailsReportSpotting1;
 
     Button buttonSubmitFoodReportSpotting;
 
@@ -32,7 +32,7 @@ public class ReportSpotting extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_spoting);
 
-        editTextLocationDetailsReportSpotting = findViewById(R.id.editTextLocationDetailsReportSpotting);
+        editTextLocationDetailsReportSpotting1 = findViewById(R.id.editTextLocationDetailsReportSpotting);
         buttonSubmitFoodReportSpotting = findViewById(R.id.buttonSubmitFoodReportSpotting);
         imageViewSpottingPicReportSpotting = findViewById(R.id.imageViewSpottingPicReportSpotting);
         textViewReportFoodSpotting = findViewById(R.id.textViewReportFoodSpotting);
@@ -66,7 +66,7 @@ public class ReportSpotting extends AppCompatActivity implements View.OnClickLis
         final DatabaseReference myref = database.getReference("Spottings");
 
 
-        FoodSpottingsClass spotting1 = new FoodSpottingsClass(editTextLocationDetailsReportSpotting.getText().toString());
+        FoodSpottingsClass spotting1 = new FoodSpottingsClass(editTextLocationDetailsReportSpotting1.getText().toString());
                 //imageViewSpottingPicReportSpotting.set.toString());
 
         myref.push().setValue(spotting1);
