@@ -46,7 +46,6 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
 
 
 
-
     }
 
     @Override
