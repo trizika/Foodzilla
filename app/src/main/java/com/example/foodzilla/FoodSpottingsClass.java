@@ -1,13 +1,16 @@
 package com.example.foodzilla;
+
+import android.graphics.Bitmap;
+
 //...
 public class FoodSpottingsClass {
     String location;
-    Byte picture;
+    Bitmap picture;
 
     public FoodSpottingsClass() {
     }
 
-    public FoodSpottingsClass(String location, Byte picture) {
+    public FoodSpottingsClass(String location, Bitmap picture) {
         this.location = location;
         this.picture = picture;
     }

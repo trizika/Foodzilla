@@ -1,5 +1,5 @@
 package com.example.foodzilla;
-
+/**
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -100,4 +100,4 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
 
         }
     }
-}
+}**/

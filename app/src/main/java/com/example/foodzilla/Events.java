@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-
+/**
 public class Events extends AppCompatActivity {
 
     @Override
@@ -35,3 +35,4 @@ public class Events extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+**/

@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.example.foodzilla.R;
 import com.example.foodzilla.ui.login.LoginViewModel;
 import com.example.foodzilla.ui.login.LoginViewModelFactory;
+/**
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -129,3 +130,4 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
 }
+**/

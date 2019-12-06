@@ -54,6 +54,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(landingintent);
 
         } else if (view == buttonLoginmain) {
+            Intent landingintent = new Intent(MainActivity.this, ReportSpotting.class);
+            startActivity(landingintent);
+
+            /**
 
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -70,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             }
 
                         }
-                    });
+                    });**/
 
         }
     }
