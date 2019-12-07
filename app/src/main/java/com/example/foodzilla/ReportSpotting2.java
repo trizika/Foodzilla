@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -22,7 +23,8 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 
 public class ReportSpotting2 extends AppCompatActivity implements View.OnClickListener {
-    private Button buttonSelectImage, buttonUploadImage, buttonGoToDisplayImageActivity;
+    private Button buttonSelectImage, buttonUploadImage, buttonSubmitLocationReportSpotting2;
+    EditText editTextLocationReportSpotting2;
     private ImageView imageViewPicture;
     private int PICK_IMAGE_REQUEST = 1;
     private StorageReference mStorageRef;
@@ -35,11 +37,12 @@ public class ReportSpotting2 extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_report_spotting2);
         buttonSelectImage = findViewById(R.id.buttonSelectImage);
         buttonUploadImage = findViewById(R.id.buttonUploadImage);
-        buttonGoToDisplayImageActivity = findViewById(R.id.buttonGoToDisplayImageActivity);
+        buttonSubmitLocationReportSpotting2 = findViewById(R.id.buttonSubmitFoodReportSpotting);
+        editTextLocationReportSpotting2 = findViewById(R.id.editTextLocationReportSpotting2);
         imageViewPicture = findViewById(R.id.imageViewPicture);
         buttonSelectImage.setOnClickListener(this);
         buttonUploadImage.setOnClickListener(this);
-        buttonGoToDisplayImageActivity.setOnClickListener(this);
+        buttonSubmitLocationReportSpotting2.setOnClickListener(this);
     }
 
     @Override
@@ -51,10 +54,7 @@ public class ReportSpotting2 extends AppCompatActivity implements View.OnClickLi
         else if (view == buttonUploadImage){
             uploadFile();
         }
-        else if (view == buttonGoToDisplayImageActivity){
-            Intent goToDisplayImageActivity = new Intent (ReportSpotting2.this, DisplayImageActivity.class);
-            startActivity(goToDisplayImageActivity);
-        }
+
     }
     private void selectImages(){
         Intent intent = new Intent();
