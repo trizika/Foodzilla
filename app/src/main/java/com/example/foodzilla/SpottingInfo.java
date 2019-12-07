@@ -35,4 +35,4 @@ public class SpottingInfo extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-//imageView.setBitmap(stuff pulled from Firebase);
+//imageView.setBitmap(stuff pulled from Firebase); 
