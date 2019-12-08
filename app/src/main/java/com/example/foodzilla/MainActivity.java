@@ -18,11 +18,11 @@ import com.google.firebase.auth.FirebaseAuth;
 //test
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private FirebaseAuth mAuth;
+
     TextView textViewfoodzillamain;
     EditText editTextemailmain, editTextpasswordmain;
     Button buttonLoginmain, buttonRegistermain;
-
-    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,36 +46,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
-        String email = editTextemailmain.getText().toString();
-        String password = editTextpasswordmain.getText().toString();
-
         if (view == buttonRegistermain) {
-            Intent landingintent = new Intent(MainActivity.this, Registration.class);
-            startActivity(landingintent);
-
-        } else if (view == buttonLoginmain) {
-            Intent landingintent = new Intent(MainActivity.this, ReportSpotting.class);
-            startActivity(landingintent);
-
-            /**
-
-            mAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                Intent landingintent = new Intent(MainActivity.this, SpottingMap.class);
-                                startActivity(landingintent);
-                                Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-
-                            } else {
-                                Toast.makeText(MainActivity.this, "LogIn Failed", Toast.LENGTH_SHORT).show();
-
-                            }
-
-                        }
-                    });**/
-
+            makeNewUsers(editTextemailmain.getText().toString(), editTextpasswordmain.getText().toString());
+        }else if (view == buttonLoginmain) {
+            loginUser(editTextemailmain.getText().toString(),editTextpasswordmain.getText().toString());
         }
+    }
+
+    public void makeNewUsers(String email, String password) {
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            //Display success message
+                            Toast.makeText(MainActivity.this, "User registration successful", Toast.LENGTH_SHORT).show();
+                        } else {
+                            //Sign-in fails
+                            Toast.makeText(MainActivity.this, "User registration failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    public void loginUser(String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            //Sign in
+                            Intent loginIntent = new Intent(MainActivity.this, MyEvents.class);
+                            startActivity(loginIntent);
+                        } else {
+                            // If sign in fails, display a message to the user
+                            Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 }
