@@ -117,7 +117,7 @@ public class ReportSpotting extends AppCompatActivity implements View.OnClickLis
                pictureOfFood);
 
         Toast.makeText(this, spotting1.toString(), Toast.LENGTH_SHORT).show();
-        myref.child("test").setValue(spotting1.picture.toString());
+        myref.push().setValue(spotting1);
         //^stored code of bitmap
 
 
