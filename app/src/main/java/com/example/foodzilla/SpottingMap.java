@@ -75,6 +75,7 @@ public class SpottingMap extends AppCompatActivity implements View.OnClickListen
 
         gmap = googleMap;
 
+        //google map integration
         gmap.setOnMapClickListener(this);
 
     }
