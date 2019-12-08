@@ -44,7 +44,7 @@ public class ReportSpotting extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_report_spoting);
+        setContentView(R.layout.activity_report_spoting); //test
 
         editTextLocationDetailsReportSpotting = findViewById(R.id.editTextLocationDetailsReportSpotting);
         buttonSubmitFoodReportSpotting = findViewById(R.id.buttonSubmitFoodReportSpotting);
