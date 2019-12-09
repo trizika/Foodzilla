@@ -10,6 +10,7 @@
         android:id="@+id/buttonMyEventsCr"
         android:layout_width="123dp"
         android:layout_height="55dp"
+        android:text="My Events"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.295"
@@ -22,6 +23,7 @@
         android:id="@+id/buttonAvailableEventsCr"
         android:layout_width="123dp"
         android:layout_height="55dp"
+        android:text="Available Events"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.722"
@@ -57,17 +59,6 @@
         app:layout_constraintVertical_bias="0.465" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="420dp"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.573" />
-
-    <Button
         android:id="@+id/button3"
         android:layout_width="420dp"
         android:layout_height="100dp"
@@ -77,6 +68,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.746" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="420dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.573" />
 
     <TextView
         android:id="@+id/textViewEName1"
@@ -151,7 +153,7 @@
         app:layout_constraintVertical_bias="0.734" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonGoToHostEvent"
         android:layout_width="200dp"
         android:layout_height="52dp"
         android:text="host an event"
@@ -180,7 +182,7 @@
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.225" />
