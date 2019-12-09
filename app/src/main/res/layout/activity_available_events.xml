@@ -7,7 +7,7 @@
     tools:context=".AvailableEvents">
 
     <Button
-        android:id="@+id/buttonMyEventsCr"
+        android:id="@+id/buttonMyEventsCr2"
         android:layout_width="123dp"
         android:layout_height="55dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,7 +19,7 @@
         tools:text="My Events" />
 
     <Button
-        android:id="@+id/buttonAvailableEventsCr"
+        android:id="@+id/buttonAvailableEventsCr2"
         android:layout_width="123dp"
         android:layout_height="55dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -134,7 +134,7 @@
         app:layout_constraintVertical_bias="0.398" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/buttonRSVPForEvent1"
         android:layout_width="202dp"
         android:layout_height="49dp"
         android:text="Host an Event!"
@@ -144,5 +144,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.851" />
+
+    <Button
+        android:id="@+id/buttonShowAvailableEvents"
+        android:layout_width="162dp"
+        android:layout_height="48dp"
+        android:text="Show available events"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.953" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

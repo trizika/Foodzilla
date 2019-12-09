@@ -1,6 +1,7 @@
 package com.example.foodzilla;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,17 +14,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.w3c.dom.Text;
 
 public class AvailableEvents extends AppCompatActivity implements View.OnClickListener {
 
 
-
-    TextView date1, date2,date3, date4;
-
-    TextView name1, name2, name3, name4;
-
-    Button bMEvents, bAEvents, BHostEvent;
+    TextView date1, date2, date3, date4, name1, name2, name3, name4;
+    Button buttonGoToHostEvent, buttonNOTHINGme2, buttonSwitchMenuAvme2, buttonShowAvailableEvents;
 
 
     @Override
@@ -31,6 +34,10 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_available_events);
 
+        buttonNOTHINGme2 = findViewById(R.id.buttonMyEventsCr2);
+        buttonSwitchMenuAvme2 = findViewById(R.id.buttonAvailableEventsCr2);
+        buttonGoToHostEvent = findViewById(R.id.buttonGoToHostEvent);
+        buttonShowAvailableEvents = findViewById(R.id.buttonShowAvailableEvents);
 
         date1 = findViewById(R.id.textviewEDate1);
         date2 = findViewById(R.id.textViewEDate2);
@@ -42,16 +49,12 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
         name3 = findViewById(R.id.textViewEName3);
         name4 = findViewById(R.id.textViewEName4);
 
-        name1.setOnClickListener(this);
-        name2.setOnClickListener(this);
-        name3.setOnClickListener(this);
-        name4.setOnClickListener(this);
-
-
-
-
-
+        buttonGoToHostEvent.setOnClickListener(this);
+        buttonNOTHINGme2.setOnClickListener(this);
+        buttonSwitchMenuAvme2.setOnClickListener(this);
+        buttonShowAvailableEvents.setOnClickListener(this);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -61,7 +64,7 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.itemSpottingMap) {
+        if (item.getItemId() == R.id.itemSpottingMap) {
             Intent spottingmapIntent = new Intent(this, SpottingMap.class);
             startActivity(spottingmapIntent);
         } else if (item.getItemId() == R.id.itemEvents) {
@@ -72,9 +75,53 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
     }
 
 
-
     @Override
     public void onClick(View view) {
+        if (view == buttonNOTHINGme2) {
+            Intent myEventsIntent2 = new Intent(this, MyEvents.class);
+            startActivity(myEventsIntent2);
+        } else if (view == buttonSwitchMenuAvme2) {
+            Intent availableEventsIntent2 = new Intent(this, AvailableEvents.class);
+            startActivity(availableEventsIntent2);
+        } else if (view == buttonGoToHostEvent) {
+            Intent goToCreateEventIntent = new Intent(this, CreateEvent2.class);
+            startActivity(goToCreateEventIntent);
+        } else if (view == buttonShowAvailableEvents) {
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("Events");
 
+            myRef.orderByChild("eventCreator").addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                    String findKey = dataSnapshot.getKey();
+                    EventClass foundEvent = dataSnapshot.getValue(EventClass.class);
+                    String findDate = foundEvent.eventEndDateAndTime;
+                    String findLocation = foundEvent.eventLocation;
+
+                    date1.setText(findDate);
+                    name1.setText(findLocation);
+                }
+
+                @Override
+                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                }
+
+                @Override
+                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
 }

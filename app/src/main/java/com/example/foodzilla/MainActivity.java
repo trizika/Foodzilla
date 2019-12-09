@@ -39,8 +39,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonLoginmain.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
-
-
     }
 
     @Override

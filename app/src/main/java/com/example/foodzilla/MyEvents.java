@@ -26,7 +26,7 @@ public class MyEvents extends AppCompatActivity implements View.OnClickListener 
         buttonEvent1me = findViewById(R.id.button1);
         buttonGoToHostEvent = findViewById(R.id.buttonGoToHostEvent);
         buttonEvent3me = findViewById(R.id.button3);
-        buttonRSVPForEvent = findViewById(R.id.button5);
+        buttonRSVPForEvent = findViewById(R.id.buttonRSVPForEvent1);
         buttonEvent2me = findViewById(R.id.button2);
 
         buttonNOTHINGme.setOnClickListener(this);
@@ -47,8 +47,8 @@ public class MyEvents extends AppCompatActivity implements View.OnClickListener 
            Intent availableEventsIntent = new Intent(this, AvailableEvents.class);
            startActivity(availableEventsIntent);
        } else if (view == buttonGoToHostEvent) {
-           //Intent goToHostEventIntent = new Intent() -> Do we have an activity where user puts in the info for the events
-           //startActivity(goToHostEventIntent);
+           Intent goToHostEventIntent = new Intent(this, CreateEvent2.class);
+           startActivity(goToHostEventIntent);
        } else if (view == buttonRSVPForEvent) {
            Intent goToRSVPForEvent = new Intent(this, AvailableEvents.class);
            startActivity(goToRSVPForEvent); //We want user to see and choose from the available events, right?
