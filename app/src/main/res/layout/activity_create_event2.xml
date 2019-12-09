@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateEvent2">
+
+    <TextView
+        android:id="@+id/textViewhosteventcevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="72dp"
+        android:text="Host Event"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textVieweventnamecevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="136dp"
+        android:text="Event Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textVieweventdatecevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="45dp"
+        android:text="Event Date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textVieweventnamecevent" />
+
+    <TextView
+        android:id="@+id/textVieweventtimecevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="41dp"
+        android:text="Event Time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textVieweventdatecevent" />
+
+    <TextView
+        android:id="@+id/textVieweventlocationcevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="40dp"
+        android:text="Event Location"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textVieweventtimecevent" />
+
+    <TextView
+        android:id="@+id/textVieweventinfocevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="39dp"
+        android:text="Event Info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textVieweventlocationcevent" />
+
+    <Button
+        android:id="@+id/buttonSubmiteventcevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="173dp"
+        android:text="Submit Event"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textVieweventlocationcevent" />
+
+    <EditText
+        android:id="@+id/editTexteventnamecevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/textVieweventnamecevent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewhosteventcevent" />
+
+    <EditText
+        android:id="@+id/editTexteventdatecevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="11dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintStart_toEndOf="@+id/textVieweventdatecevent"
+        app:layout_constraintTop_toBottomOf="@+id/editTexteventnamecevent" />
+
+    <EditText
+        android:id="@+id/editTexteventtimecevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="17dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintStart_toEndOf="@+id/textVieweventtimecevent"
+        app:layout_constraintTop_toBottomOf="@+id/editTexteventdatecevent" />
+
+    <EditText
+        android:id="@+id/editTexteventlocationcevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintStart_toEndOf="@+id/textVieweventlocationcevent"
+        app:layout_constraintTop_toBottomOf="@+id/editTexteventtimecevent" />
+
+    <EditText
+        android:id="@+id/editTexteventinfocevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/textVieweventinfocevent"
+        app:layout_constraintTop_toBottomOf="@+id/editTexteventlocationcevent" />
+
+    <TextView
+        android:id="@+id/textVieweventcapacitycevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="36dp"
+        android:text="Event Capacity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textVieweventinfocevent" />
+
+    <EditText
+        android:id="@+id/editTexteventcapacitycevent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/textVieweventcapacitycevent"
+        app:layout_constraintTop_toBottomOf="@+id/editTexteventinfocevent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
