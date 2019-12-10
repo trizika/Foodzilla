@@ -18,7 +18,7 @@
         android:text="Select Image"
         app:layout_constraintBottom_toTopOf="@+id/buttonUploadImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.031"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +31,7 @@
         android:layout_marginEnd="140dp"
         android:text="Upload Image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSelectImage" />
 
@@ -54,8 +54,8 @@
         android:id="@+id/editTextLocationReportSpotting2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="283dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="52dp"
         android:ems="10"
         android:hint="Food Spotting Location"
         android:inputType="textPersonName"
@@ -66,7 +66,7 @@
         android:id="@+id/buttonSubmitLocationReportSpotting2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="320dp"
+        android:layout_marginStart="144dp"
         android:layout_marginTop="48dp"
         android:text="Submit Location"
         app:layout_constraintStart_toStartOf="parent"

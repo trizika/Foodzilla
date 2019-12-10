@@ -53,6 +53,27 @@ public class CreateEvent2 extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    public void onClick(View view) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Events");
+
+        if(view == buttonSubmiteventcevent) {
+            String enteredName = editTexteventnamecevent.getText().toString();
+            String enteredDate = editTexteventdatecevent.getText().toString();
+            String enteredTime = editTexteventtimecevent.getText().toString();
+            String enteredLocation = editTexteventlocationcevent.getText().toString();
+            String enteredInfo = editTexteventinfocevent.getText().toString();
+            String enteredCapacity = editTexteventcapacitycevent.getText().toString();
+
+            EventClass e = new EventClass(enteredName, enteredDate, enteredTime,
+                    enteredLocation, enteredInfo, enteredCapacity);
+
+            myRef.push().setValue(e);
+        }
+
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.cornermenu, menu);
@@ -71,23 +92,5 @@ public class CreateEvent2 extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(View view) {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Events");
 
-        if(buttonSubmiteventcevent == view) {
-            String enteredName = editTexteventnamecevent.getText().toString();
-            String enteredDate = editTexteventdatecevent.getText().toString();
-            String enteredTime = editTexteventtimecevent.getText().toString();
-            String enteredLocation = editTexteventlocationcevent.getText().toString();
-            String enteredInfo = editTexteventinfocevent.getText().toString();
-            String enteredCapacity = editTexteventcapacitycevent.getText().toString();
-
-            EventClass myEvent = new EventClass(enteredName, "Signed up users TBA", "Event full TBA", enteredCapacity, enteredLocation, "Food served TBA", enteredDate, "End date and time TBA", enteredInfo, "Status TBA");
-            myRef.push().setValue(myEvent);
-        }
-
-    }
-}//t
-
+}
