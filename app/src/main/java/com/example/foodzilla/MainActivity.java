@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,6 +35,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editTextpasswordmain = findViewById(R.id.editTextpasswordmain);
         buttonLoginmain = findViewById(R.id.buttonLoginmain);
         buttonRegistermain = findViewById(R.id.buttonRegistermain);
+
+
+        buttonRegistermain.setText(Html.fromHtml("<p><u>Not a member? Sign up!</u></p>"));
+
+
 
         buttonRegistermain.setOnClickListener(this);
         buttonLoginmain.setOnClickListener(this);
