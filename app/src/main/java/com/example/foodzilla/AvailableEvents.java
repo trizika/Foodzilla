@@ -34,9 +34,9 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
 
     TextView date1, date2, date3, date4, name1, name2, name3, name4;
     Button buttonGoToHostEvent, buttonNOTHINGme2, buttonSwitchMenuAvme2, buttonShowAvailableEvents;
-    private RecyclerView recyclerView; //recycler view variable
-    private RecyclerView.LayoutManager layoutManager; //layout manager for recycler view, need this for a recyclerview
-    private List<Contact> contacts;
+    public RecyclerView recyclerView; //recycler view variable
+    public RecyclerView.LayoutManager layoutManager; //layout manager for recycler view, need this for a recyclerview
+    public List<Contact> contacts;
 
 
     @Override
@@ -89,7 +89,7 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
         } else if (view == buttonShowAvailableEvents) {
 
             FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference("Events");
+            final DatabaseReference myRef = database.getReference("Events");
 
             //basically going to have to create a for loop here that puts the event name and date
             myRef.addValueEventListener(new ValueEventListener() {
@@ -103,7 +103,6 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
 
                     recyclerView = findViewById(R.id.recyclerView); //Link recyclerview variable to xml
                     RecyclerViewAdapter adapter = new RecyclerViewAdapter(contacts, AvailableEvents.this); //Linking the adapter to recyclerView,
-                    //check out the RecyclerViewAdapter (this is the hard part)
                     recyclerView.setAdapter(adapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(AvailableEvents.this)); //Setting the layout manager, commonly
                 }

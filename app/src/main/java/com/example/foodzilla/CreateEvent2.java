@@ -54,7 +54,7 @@ public class CreateEvent2 extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Events");
+        final DatabaseReference myRef = database.getReference("Events");
 
         if (view == buttonSubmit) {
 
@@ -70,15 +70,12 @@ public class CreateEvent2 extends AppCompatActivity implements View.OnClickListe
 
             String capacity = editTexteventcapacitycevent.getText().toString();
 
-            EventClass event = new EventClass(name, date, time, location, info, capacity);
+            EventClass myEvent = new EventClass(name, date, time, location, info, capacity);
 
-            myRef.push().setValue(event);
+            myRef.push().setValue(myEvent);
 
-            Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
         }
-
-
-
 
     }
 

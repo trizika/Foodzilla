@@ -2,12 +2,12 @@ package com.example.foodzilla;
 
 //cant commit ....
 public class EventClass {
-   String eventname;
-   String eventdate;
-   String eventtime;
-   String eventlocation;
-   String eventinfo;
-   String eventCapacity;
+   public  String eventname;
+    public String eventdate;
+    public String eventtime;
+    public String eventlocation;
+    public String eventinfo;
+    public String eventCapacity;
 
 
     public EventClass() {

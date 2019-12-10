@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+/**
 public class RsvpdEvents extends AppCompatActivity implements View.OnClickListener {
 
     TextView textViewrsvpdattendingrevents, textVieweventnamerevents, textVieweventdaterevents, textVieweventtimerevents, textVieweventlocationrevents, textVieweventinforevents;
@@ -53,9 +54,5 @@ public class RsvpdEvents extends AppCompatActivity implements View.OnClickListen
         }
         return super.onOptionsItemSelected(item);
     }
-
-    @Override
-    public void onClick(View v) {
-        if
-    }
 }
+ **/
