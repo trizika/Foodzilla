@@ -12,17 +12,18 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
-public class SpottingMap extends AppCompatActivity implements View.OnClickListener, OnMapReadyCallback, GoogleMap.OnMapClickListener {
+public class SpottingMap extends AppCompatActivity implements View.OnClickListener {
 
-    Button addFoodSpotting;
+    Button gtfs1, gtfs2, gtfs3, addFoodSpotting;
+    TextView fs1, fs2, fs3;
 
-    GoogleMap gmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +32,18 @@ public class SpottingMap extends AppCompatActivity implements View.OnClickListen
 
         addFoodSpotting = findViewById(R.id.buttonSubmitsmap);
 
-        SupportMapFragment supportMapFragment = (SupportMapFragment)
-                getSupportFragmentManager().findFragmentById(R.id.mapViewsmap);
+        gtfs1 = findViewById(R.id.buttonGTFS1);
+        gtfs2 = findViewById(R.id.buttonGTFS2);
+        gtfs3 = findViewById(R.id.buttonGTFS3);
 
-        supportMapFragment.getMapAsync(this);
+        fs1 = findViewById(R.id.textViewFS1);
+        fs2 = findViewById(R.id.textViewFS2);
+        fs3 = findViewById(R.id.textViewFS3);
 
+        addFoodSpotting.setOnClickListener(this);
+        gtfs1.setOnClickListener(this);
+        gtfs2.setOnClickListener(this);
+        gtfs3.setOnClickListener(this);
     }
 
 
@@ -48,7 +56,7 @@ public class SpottingMap extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.itemSpottingMap) {
+        if (item.getItemId() == R.id.itemSpottingMap) {
             Intent spottingmapIntent = new Intent(this, SpottingMap.class);
             startActivity(spottingmapIntent);
         } else if (item.getItemId() == R.id.itemEvents) {
@@ -68,20 +76,5 @@ public class SpottingMap extends AppCompatActivity implements View.OnClickListen
             startActivity(addspottingintent);
 
         }
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-
-        gmap = googleMap;
-
-        //google map integration
-        gmap.setOnMapClickListener(this);
-
-    }
-
-    @Override
-    public void onMapClick(LatLng latLng) {
-
     }
 }

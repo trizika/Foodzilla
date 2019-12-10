@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class PreferencesActivity extends AppCompatActivity implements View.OnClickListener {
@@ -16,7 +15,7 @@ public class PreferencesActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
-        textViewLocation = findViewById(R.id.textViewLocation);
+        textViewLocation = findViewById(R.id.textViewRLocation);
         textViewNotifications = findViewById(R.id.textViewNotifications);
         buttonLocationNo = findViewById(R.id.buttonLocationNo);
         buttonLocationYes = findViewById(R.id.buttonLocationYes);

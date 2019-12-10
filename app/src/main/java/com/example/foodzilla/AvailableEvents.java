@@ -3,6 +3,8 @@ package com.example.foodzilla; //t
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,14 +21,22 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AvailableEvents extends AppCompatActivity implements View.OnClickListener {
 
 
     TextView date1, date2, date3, date4, name1, name2, name3, name4;
     Button buttonGoToHostEvent, buttonNOTHINGme2, buttonSwitchMenuAvme2, buttonShowAvailableEvents;
+    private RecyclerView recyclerView; //recycler view variable
+    private RecyclerView.LayoutManager layoutManager; //layout manager for recycler view, need this for a recyclerview
+    private List<Contact> contacts;
 
 
     @Override
@@ -36,18 +46,8 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
 
         buttonNOTHINGme2 = findViewById(R.id.buttonMyEventsCr2);
         buttonSwitchMenuAvme2 = findViewById(R.id.buttonAvailableEventsCr2);
-        buttonGoToHostEvent = findViewById(R.id.buttonGoToHostEvent);
+        buttonGoToHostEvent = findViewById(R.id.buttonRSVPForEvent1);
         buttonShowAvailableEvents = findViewById(R.id.buttonShowAvailableEvents);
-
-        date1 = findViewById(R.id.textviewEDate1);
-        date2 = findViewById(R.id.textViewEDate2);
-        date3 = findViewById(R.id.textViewEDate3);
-        date4 = findViewById(R.id.textViewEDate4);
-
-        name1 = findViewById(R.id.textViewEName1);
-        name2 = findViewById(R.id.textViewEName2);
-        name3 = findViewById(R.id.textViewEName3);
-        name4 = findViewById(R.id.textViewEName4);
 
         buttonGoToHostEvent.setOnClickListener(this);
         buttonNOTHINGme2.setOnClickListener(this);
@@ -87,34 +87,25 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
             Intent goToCreateEventIntent = new Intent(this, CreateEvent2.class);
             startActivity(goToCreateEventIntent);
         } else if (view == buttonShowAvailableEvents) {
+
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myRef = database.getReference("Events");
 
-            myRef.orderByChild("eventCreator").addChildEventListener(new ChildEventListener() {
+            //basically going to have to create a for loop here that puts the event name and date
+            myRef.addValueEventListener(new ValueEventListener() {
                 @Override
-                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                    String findKey = dataSnapshot.getKey();
-                    EventClass foundEvent = dataSnapshot.getValue(EventClass.class);
-                    String findDate = foundEvent.eventEndDateAndTime;
-                    String findLocation = foundEvent.eventLocation;
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    ArrayList<Contact> contacts = new ArrayList<>();
+                    for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                        EventClass e = dataSnapshot.getValue(EventClass.class);
+                        contacts.add(new Contact(e.eventname, e.eventdate));
+                    }
 
-                    date1.setText(findDate);
-                    name1.setText(findLocation);
-                }
-
-                @Override
-                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-                }
-
-                @Override
-                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-                }
-
-                @Override
-                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                    recyclerView = findViewById(R.id.recyclerView); //Link recyclerview variable to xml
+                    RecyclerViewAdapter adapter = new RecyclerViewAdapter(contacts, AvailableEvents.this); //Linking the adapter to recyclerView,
+                    //check out the RecyclerViewAdapter (this is the hard part)
+                    recyclerView.setAdapter(adapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(AvailableEvents.this)); //Setting the layout manager, commonly
                 }
 
                 @Override
@@ -122,6 +113,13 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
 
                 }
             });
+
+
+            recyclerView = findViewById(R.id.recyclerView); //Link recyclerview variable to xml
+            RecyclerViewAdapter adapter = new RecyclerViewAdapter(contacts, this); //Linking the adapter to recyclerView,
+            //check out the RecyclerViewAdapter (this is the hard part)
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this)); //Setting the layout manager, commonly used is linear
         }
     }
 }

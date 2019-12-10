@@ -15,6 +15,8 @@ public class SpottingInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spotting_info);
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
