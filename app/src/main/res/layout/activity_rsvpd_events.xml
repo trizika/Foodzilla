@@ -10,9 +10,10 @@
         android:id="@+id/textViewrsvpdattendingrevents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
+        android:layout_marginStart="128dp"
         android:layout_marginTop="68dp"
         android:text="RSVP'd Attending"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

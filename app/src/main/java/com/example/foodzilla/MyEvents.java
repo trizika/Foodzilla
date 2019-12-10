@@ -21,6 +21,8 @@ public class MyEvents extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_events);
 
+
+
         buttonNOTHINGme = findViewById(R.id.buttonMyEventsCr);
         buttonSwitchMenuAvme = findViewById(R.id.buttonAvailableEventsCr);
         buttonEvent1me = findViewById(R.id.button1);
@@ -84,4 +86,4 @@ public class MyEvents extends AppCompatActivity implements View.OnClickListener 
         return super.onOptionsItemSelected(item);
     }
 
-    }
+}
