@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.EventLog;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -19,11 +21,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class CreateEvent2 extends AppCompatActivity implements View.OnClickListener {
 
-    private FirebaseAuth mAuth;
 
     TextView textViewhosteventcevent, textVieweventnamecevent, textVieweventdatecevent, textVieweventtimecevent, textVieweventlocationcevent, textVieweventcapacitycevent, textVieweventinfocevent;
     EditText editTexteventnamecevent, editTexteventdatecevent, editTexteventtimecevent, editTexteventlocationcevent, editTexteventcapacitycevent, editTexteventinfocevent;
-    Button buttonSubmiteventcevent;
+    Button buttonSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +46,9 @@ public class CreateEvent2 extends AppCompatActivity implements View.OnClickListe
         editTexteventcapacitycevent = findViewById(R.id.editTexteventcapacitycevent);
         editTexteventinfocevent = findViewById(R.id.editTexteventinfocevent);
 
-        buttonSubmiteventcevent = findViewById(R.id.buttonSubmiteventcevent);
+        buttonSubmit = findViewById(R.id.buttonSubmiteventcevent);
 
-        buttonSubmiteventcevent.setOnClickListener(this);
-
-        mAuth = FirebaseAuth.getInstance();
+        buttonSubmit.setOnClickListener(this);
     }
 
     @Override
@@ -57,19 +56,29 @@ public class CreateEvent2 extends AppCompatActivity implements View.OnClickListe
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Events");
 
-        if(view == buttonSubmiteventcevent) {
-            String enteredName = editTexteventnamecevent.getText().toString();
-            String enteredDate = editTexteventdatecevent.getText().toString();
-            String enteredTime = editTexteventtimecevent.getText().toString();
-            String enteredLocation = editTexteventlocationcevent.getText().toString();
-            String enteredInfo = editTexteventinfocevent.getText().toString();
-            String enteredCapacity = editTexteventcapacitycevent.getText().toString();
+        if (view == buttonSubmit) {
 
-            EventClass e = new EventClass(enteredName, enteredDate, enteredTime,
-                    enteredLocation, enteredInfo, enteredCapacity);
+            String name = editTexteventnamecevent.getText().toString();
 
-            myRef.push().setValue(e);
+            String date = editTexteventdatecevent.getText().toString();
+
+            String time = editTexteventtimecevent.getText().toString();
+
+            String location = editTexteventlocationcevent.getText().toString();
+
+            String info = editTexteventinfocevent.getText().toString();
+
+            String capacity = editTexteventcapacitycevent.getText().toString();
+
+            EventClass event = new EventClass(name, date, time, location, info, capacity);
+
+            myRef.push().setValue(event);
+
+            Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show();
         }
+
+
+
 
     }
 
