@@ -51,7 +51,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public int getItemCount() {
-        return Contacts.size();
+        return  Contacts.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder { //class to hold each individual view to display to your recyclerview
@@ -65,8 +65,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public ViewHolder(@NonNull View view){ //ViewHolder constructor
             super(view);
 
-            textView1 = itemView.findViewById(R.id.textViewRDate);
-            textView2 = itemView.findViewById(R.id.textViewRName);
+            textView1 = itemView.findViewById(R.id.textViewRName);
+            textView2 = itemView.findViewById(R.id.textViewRDate);
             parentlayout = itemView.findViewById(R.id.parentLayout);
         }
     }

@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -77,6 +78,7 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
+        final Boolean boolFlag = true;
         if (view == buttonNOTHINGme2) {
             Intent myEventsIntent2 = new Intent(this, MyEvents.class);
             startActivity(myEventsIntent2);
@@ -91,21 +93,156 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             final DatabaseReference myRef = database.getReference("Events");
 
+         /*  myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+               @Override
+               public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                   ArrayList<Contact> contacts = new ArrayList<>();
+                   for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                          EventClass e = dataSnapshot.getValue(EventClass.class);
+                            contacts.add(new Contact(e.eventname, e.eventdate));
+                           //  Toast.makeText(AvailableEvents.this, e.eventname + e.eventtime, Toast.LENGTH_SHORT).show();
+                       Toast.makeText(AvailableEvents.this, dataSnapshot.getKey(), Toast.LENGTH_SHORT).show();
+                        }
+                   recyclerView = findViewById(R.id.recyclerView); //Link recyclerview variable to xml
+                    RecyclerViewAdapter adapter = new RecyclerViewAdapter(contacts, AvailableEvents.this); //Linking the adapter to recyclerView,
+                    recyclerView.setAdapter(adapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(AvailableEvents.this)); //Setting the layout manager, commonly
+
+               }
+
+               @Override
+               public void onCancelled(@NonNull DatabaseError databaseError) {
+
+               }
+           });*/
+
+
+         myRef.addChildEventListener(new ChildEventListener() {
+             @Override
+             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                 ArrayList<Contact> contacts = new ArrayList<>();
+
+                 EventClass e = dataSnapshot.getValue(EventClass.class);
+                 contacts.add(new Contact(e.eventname, e.eventdate));
+
+                // long cc = dataSnapshot.getChildrenCount();
+                // long loopCounter = 1;
+                       // for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                         //                                      // Toast.makeText(AvailableEvents.this, e.eventname + e.eventtime, Toast.LENGTH_SHORT).show();
+                           // }
+                       // }
+
+
+                  //  EventClass e = dataSnapshot.getValue(EventClass.class);
+////                   // contacts.add(new Contact(e.eventname, e.eventdate));
+////                   // Toast.makeText(AvailableEvents.this, e.eventname + e.eventtime, Toast.LENGTH_SHORT).show();
+////
+                    recyclerView = findViewById(R.id.recyclerView); //Link recyclerview variable to xml
+                    RecyclerViewAdapter adapter = new RecyclerViewAdapter(contacts, AvailableEvents.this); //Linking the adapter to recyclerView,
+                    recyclerView.setAdapter(adapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(AvailableEvents.this)); //Setting the layout manager, commonly
+
+             }
+
+             @Override
+             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+             }
+
+             @Override
+             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+             }
+
+             @Override
+             public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+             }
+
+             @Override
+             public void onCancelled(@NonNull DatabaseError databaseError) {
+
+             }
+         });
+
+
+
+
+
+///*
+////            myRef.addChildEventListener(new ChildEventListener() {
+////                @Override
+////                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+////
+////                    ArrayList<Contact> contacts = new ArrayList<>();
+////
+////                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+////                            EventClass e = dataSnapshot.getValue(EventClass.class);
+////                            contacts.add(new Contact(e.eventname, e.eventdate));
+////                            // Toast.makeText(AvailableEvents.this, e.eventname + e.eventtime, Toast.LENGTH_SHORT).show();
+////                        }
+////
+////
+////                  //  EventClass e = dataSnapshot.getValue(EventClass.class);
+////                   // contacts.add(new Contact(e.eventname, e.eventdate));
+////                   // Toast.makeText(AvailableEvents.this, e.eventname + e.eventtime, Toast.LENGTH_SHORT).show();
+////
+////                    recyclerView = findViewById(R.id.recyclerView); //Link recyclerview variable to xml
+////                    RecyclerViewAdapter adapter = new RecyclerViewAdapter(contacts, AvailableEvents.this); //Linking the adapter to recyclerView,
+////                    recyclerView.setAdapter(adapter);
+////                    recyclerView.setLayoutManager(new LinearLayoutManager(AvailableEvents.this)); //Setting the layout manager, commonly
+////
+////                }
+////
+////                @Override
+////                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+////
+////                }
+////
+////                @Override
+////                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+////
+////                }
+////
+////                @Override
+////                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+////
+////                }
+////
+////                @Override
+////                public void onCancelled(@NonNull DatabaseError databaseError) {
+////
+////                }
+////            });
+////
+////
+//*/
+
+
             //basically going to have to create a for loop here that puts the event name and date
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     ArrayList<Contact> contacts = new ArrayList<>();
-                    for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                   // Toast.makeText(AvailableEvents.this, String.valueOf( dataSnapshot.getChildrenCount()), Toast.LENGTH_SHORT).show();
+
+//                    EventClass e = dataSnapshot.getValue(EventClass.class);
+//                    contacts.add(new Contact(e.eventname, e.eventdate));
+//                    Toast.makeText(AvailableEvents.this, e.eventname + e.eventtime, Toast.LENGTH_SHORT).show();
+
+
+
+           /*         for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                         EventClass e = dataSnapshot.getValue(EventClass.class);
                         contacts.add(new Contact(e.eventname, e.eventdate));
+                        Toast.makeText(AvailableEvents.this, e.eventname + e.eventtime, Toast.LENGTH_SHORT).show();
                     }
 
                     recyclerView = findViewById(R.id.recyclerView); //Link recyclerview variable to xml
                     RecyclerViewAdapter adapter = new RecyclerViewAdapter(contacts, AvailableEvents.this); //Linking the adapter to recyclerView,
                     recyclerView.setAdapter(adapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(AvailableEvents.this)); //Setting the layout manager, commonly
-                }
+*/                }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -114,11 +251,11 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
             });
 
 
-            recyclerView = findViewById(R.id.recyclerView); //Link recyclerview variable to xml
+            /*recyclerView = findViewById(R.id.recyclerView); //Link recyclerview variable to xml
             RecyclerViewAdapter adapter = new RecyclerViewAdapter(contacts, this); //Linking the adapter to recyclerView,
             //check out the RecyclerViewAdapter (this is the hard part)
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this)); //Setting the layout manager, commonly used is linear
-        }
+*/        }
     }
 }
