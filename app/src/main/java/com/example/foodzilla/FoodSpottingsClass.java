@@ -5,14 +5,14 @@ import android.graphics.Bitmap;
 //...
 public class FoodSpottingsClass {
     String location;
-    Bitmap picture;
+    String picturelocation;
 
     public FoodSpottingsClass() {
     }
 
-    public FoodSpottingsClass(String location, Bitmap picture) {
+    public FoodSpottingsClass(String location, String picturelocation) {
         this.location = location;
-        this.picture = picture;
+        this.picturelocation = picturelocation;
     }
 }
 

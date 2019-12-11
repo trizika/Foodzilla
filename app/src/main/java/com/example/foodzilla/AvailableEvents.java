@@ -117,7 +117,7 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
            });*/
 
 
-         myRef.addChildEventListener(new ChildEventListener() {
+ /*        myRef.addChildEventListener(new ChildEventListener() {
              @Override
              public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                  ArrayList<Contact> contacts = new ArrayList<>();
@@ -167,7 +167,7 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
 
 
 
-
+*/
 
 ///*
 ////            myRef.addChildEventListener(new ChildEventListener() {
@@ -177,7 +177,7 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
 ////                    ArrayList<Contact> contacts = new ArrayList<>();
 ////
 ////                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-////                            EventClass e = dataSnapshot.getValue(EventClass.class);
+////                            EventClass e = snapshot.getValue(EventClass.class);
 ////                            contacts.add(new Contact(e.eventname, e.eventdate));
 ////                            // Toast.makeText(AvailableEvents.this, e.eventname + e.eventtime, Toast.LENGTH_SHORT).show();
 ////                        }
@@ -232,8 +232,8 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
 
 
 
-           /*         for(DataSnapshot snapshot: dataSnapshot.getChildren()){
-                        EventClass e = dataSnapshot.getValue(EventClass.class);
+                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                        EventClass e = snapshot.getValue(EventClass.class);
                         contacts.add(new Contact(e.eventname, e.eventdate));
                         Toast.makeText(AvailableEvents.this, e.eventname + e.eventtime, Toast.LENGTH_SHORT).show();
                     }
@@ -242,7 +242,7 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
                     RecyclerViewAdapter adapter = new RecyclerViewAdapter(contacts, AvailableEvents.this); //Linking the adapter to recyclerView,
                     recyclerView.setAdapter(adapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(AvailableEvents.this)); //Setting the layout manager, commonly
-*/                }
+               }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
