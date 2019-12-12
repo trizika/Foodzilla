@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
 public class ReportSpotting extends AppCompatActivity implements View.OnClickListener {
     EditText editTextLocationDetailsReportSpotting;
 

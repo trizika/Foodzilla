@@ -1,5 +1,6 @@
 package com.example.foodzilla;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
@@ -44,6 +45,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.textView1.setText(Contacts.get(position).name);
         holder.textView2.setText(Contacts.get(position).date);
+        holder.parentlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent eventInfoIntent = new Intent(view.getContext(), EventDetails.class);
+
+                mContext.startActivity(eventInfoIntent);
+
+            }
+        });
 
 
 
