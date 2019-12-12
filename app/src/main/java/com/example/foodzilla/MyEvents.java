@@ -20,7 +20,10 @@ public class MyEvents extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_events);
-
+        if(getSupportActionBar() != null)
+        {
+            getSupportActionBar().setElevation(0);
+        }
 
 
         buttonNOTHINGme = findViewById(R.id.buttonMyEventsCr);
@@ -66,13 +69,18 @@ public class MyEvents extends AppCompatActivity implements View.OnClickListener 
        //     Intent intent = new Intent(this, AvailableEvents.class);
        //     startActivity(intent);
        //}
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.cornermenu, menu);
+
         return super.onCreateOptionsMenu(menu);
+
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
