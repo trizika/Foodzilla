@@ -30,7 +30,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AvailableEvents extends AppCompatActivity implements View.OnClickListener {
+public class AvailableEvents extends AppCompatActivity implements View.OnClickListener, RecyclerViewAdapter.OnNoteListener {
 
 
     TextView date1, date2, date3, date4, name1, name2, name3, name4;
@@ -54,6 +54,15 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
         buttonNOTHINGme2.setOnClickListener(this);
         buttonSwitchMenuAvme2.setOnClickListener(this);
         buttonShowAvailableEvents.setOnClickListener(this);
+
+        recyclerView = findViewById(R.id.recyclerView);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+
+        recyclerView.setLayoutManager(manager);
+
+
+
+
     }
 
     @Override
@@ -223,7 +232,6 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    ArrayList<Contact> contacts = new ArrayList<>();
                    // Toast.makeText(AvailableEvents.this, String.valueOf( dataSnapshot.getChildrenCount()), Toast.LENGTH_SHORT).show();
 
 //                    EventClass e = dataSnapshot.getValue(EventClass.class);
@@ -235,14 +243,14 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
                  for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                         EventClass e = snapshot.getValue(EventClass.class);
                         contacts.add(new Contact(e.eventname, e.eventdate));
-                        Toast.makeText(AvailableEvents.this, e.eventname + e.eventtime, Toast.LENGTH_SHORT).show();
                     }
 
-                    recyclerView = findViewById(R.id.recyclerView); //Link recyclerview variable to xml
-                    RecyclerViewAdapter adapter = new RecyclerViewAdapter(contacts, AvailableEvents.this); //Linking the adapter to recyclerView,
+                    //Link recyclerview variable to xml
+                    RecyclerViewAdapter adapter = new RecyclerViewAdapter (contacts, AvailableEvents.this, AvailableEvents.this);//Linking the adapter to recyclerView,
                     recyclerView.setAdapter(adapter);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(AvailableEvents.this)); //Setting the layout manager, commonly
-               }
+                }
+
+
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -257,5 +265,16 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this)); //Setting the layout manager, commonly used is linear
 */        }
+    }
+
+    @Override
+    public void onNoteClick(int position) {
+
+        contacts.get(position);
+
+        Intent infointent = new Intent(this, EventDetails.class);
+
+        startActivity(infointent);
+
     }
 }
