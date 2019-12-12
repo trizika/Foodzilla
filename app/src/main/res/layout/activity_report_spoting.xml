@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.89" />
 
     <EditText
-        android:id="@+id/editTextLocationDetailsReportSpotting"
+        android:id="@+id/editTextLocationDetailsReportSpotting1"
         android:layout_width="264dp"
         android:layout_height="43dp"
         android:ems="10"

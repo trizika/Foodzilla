@@ -4,8 +4,8 @@ import android.graphics.Bitmap;
 
 //...
 public class FoodSpottingsClass {
-    String location;
-    String picturelocation;
+    public String location;
+    public String picturelocation;
 
     public FoodSpottingsClass() {
     }

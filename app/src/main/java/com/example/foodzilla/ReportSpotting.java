@@ -1,145 +1,183 @@
 package com.example.foodzilla;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.camera.core.CameraX;
-import androidx.camera.core.Preview;
-import androidx.camera.core.PreviewConfig;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.lifecycle.LifecycleOwner;
 
-import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.TextureView;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.EditText;
+
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.IOException;
+import java.util.UUID;
 
 public class ReportSpotting extends AppCompatActivity implements View.OnClickListener {
+
+    Button buttonChoose, buttonUpload;
+    ImageView imageViewAdd;
     EditText editTextLocationDetailsReportSpotting;
 
-    Button buttonSubmitFoodReportSpotting;
 
-    TextView textViewReportFoodSpotting;
+    Uri filePath;
 
-    TextureView textureViewReportSpotting;
+    FirebaseStorage storage;
+    StorageReference storageReference;
 
-    private static final int MY_PERMISSIONS_REQUEST_CAMERA = 10;
-
-
+    final int PICK_IMAGE_REQUEST = 71;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_report_spoting); //test
+        setContentView(R.layout.activity_add_photo);
 
-        editTextLocationDetailsReportSpotting = findViewById(R.id.editTextLocationDetailsReportSpotting);
-        buttonSubmitFoodReportSpotting = findViewById(R.id.buttonSubmitFoodReportSpotting);
-        textViewReportFoodSpotting = findViewById(R.id.textViewReportFoodSpotting);
-        textureViewReportSpotting = findViewById(R.id.textureViewReportSpotting);
+        buttonChoose = findViewById(R.id.buttonChoose);
+        buttonUpload = findViewById(R.id.buttonUpload);
+        imageViewAdd = findViewById(R.id.imageViewAdd);
+        editTextLocationDetailsReportSpotting = findViewById(R.id.editTextLocationDetailsReportSpotting1);
 
-        buttonSubmitFoodReportSpotting.setOnClickListener(this);
 
+        buttonChoose.setOnClickListener(this);
+        buttonUpload.setOnClickListener(this);
+
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
     }
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.cornermenu, menu);
-        if (ContextCompat.checkSelfPermission(ReportSpotting.this,
-                Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
+    public void onClick(View v) {
 
-            // Permission is not granted
-            // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(ReportSpotting.this,
-                    Manifest.permission.CAMERA)) {
-                // Show an explanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
-            } else {
-                // No explanation needed; request the permission
-                ActivityCompat.requestPermissions(ReportSpotting.this,
-                        new String[]{Manifest.permission.CAMERA},
-                        MY_PERMISSIONS_REQUEST_CAMERA);
-
-                // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
-                // app-defined int constant. The callback method gets the
-                // result of the request.
+        if (buttonChoose == v) {
+            chooseImage();
+        } else if (buttonUpload == v) {
+            uploadImage();
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            final DatabaseReference myref = database.getReference("Spottings");
+            FoodSpottingsClass spotting1 = new FoodSpottingsClass(
+                    editTextLocationDetailsReportSpotting.getText().toString(), myref.toString());
+            for (int i = 0; i < 1; i++) {
+                myref.push().setValue(spotting1);
             }
-        } else {
-            // Permission has already been granted
-            startCamera();
+
+
         }
+    }
 
-        return super.onCreateOptionsMenu(menu);
-
-
+    private void chooseImage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.itemSpottingMap) {
-            Intent spottingmapIntent = new Intent(this, SpottingMap.class);
-            startActivity(spottingmapIntent);
-        } else if (item.getItemId() == R.id.itemEvents) {
-            Intent eventsIntent = new Intent(this, MyEvents.class);
-            startActivity(eventsIntent);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null) {
+            filePath = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                imageViewAdd.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(View view) {
-
-        //Takes a snapshot of the current camera and puts it into a bitmap
-        Bitmap pictureOfFood = textureViewReportSpotting.getBitmap();
-
+    private void uploadImage() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("Spottings");
 
-        final DatabaseReference myref = database.getReference("Spottings");
-        Toast.makeText(this, myref.toString(), Toast.LENGTH_SHORT).show();
+        if (filePath != null) {
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
 
-       FoodSpottingsClass spotting1 = new FoodSpottingsClass(
-               editTextLocationDetailsReportSpotting.getText().toString(),
-               pictureOfFood);
+            final StorageReference ref = storageReference.child("images/" + UUID.randomUUID().toString());
+            ref.putFile(filePath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressDialog.dismiss();
 
-        Toast.makeText(this, spotting1.toString(), Toast.LENGTH_SHORT).show();
-        myref.push().setValue(spotting1);
-        //^stored code of bitmap
+                            myRef.orderByKey().limitToLast(1).addChildEventListener(new ChildEventListener() {
+                                @Override
+                                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                                    String imageReference = ref.toString();
+                                    String myKey = dataSnapshot.getKey();
+                                    String[] split = imageReference.split("/");
+                                    imageReference = split[3] + "/" + split[4];
+                                    myRef.child(myKey).child("picturelocation").setValue(imageReference);
+
+                                    Toast.makeText(ReportSpotting.this, "Uploaded", Toast.LENGTH_SHORT).show();
+
+                                }
+
+                                @Override
+                                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                }
+
+                                @Override
+                                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                                }
+
+                                @Override
+                                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
 
 
-        //Intent intent1 = new Intent(ReportSpotting.this, SpottingMap.class);
+                        }
 
-        //startActivity(intent1);
-    }
-    public void startCamera(){
-        PreviewConfig config = new PreviewConfig.Builder().build();
-        Preview preview = new Preview(config);
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(ReportSpotting.this, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot
+                                    .getTotalByteCount());
+                            progressDialog.setMessage("Uploaded " + (int) progress + "%");
+                        }
+                    });
 
-        preview.setOnPreviewOutputUpdateListener(
-                new Preview.OnPreviewOutputUpdateListener() {
-                    @Override
-                    public void onUpdated(Preview.PreviewOutput previewOutput) {
-
-                        textureViewReportSpotting.setSurfaceTexture(previewOutput.getSurfaceTexture());
-                    };
-                });
-
-        CameraX.bindToLifecycle((LifecycleOwner) this, preview);
+        }
 
     }
 }
