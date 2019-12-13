@@ -22,14 +22,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
-public class AvailableEvents extends AppCompatActivity implements View.OnClickListener, RecyclerViewAdapter.OnNoteListener {
+public class AvailableEvents extends AppCompatActivity implements View.OnClickListener{
 
 
     TextView date1, date2, date3, date4, name1, name2, name3, name4;
     Button buttonGoToHostEvent, buttonNOTHINGme2, buttonSwitchMenuAvme2, buttonShowAvailableEvents;
     public RecyclerView recyclerView; //recycler view variable
     public RecyclerView.LayoutManager layoutManager; //layout manager for recycler view, need this for a recyclerview
-    public List<Contact> contacts;
+    public List<EventClass> contacts;
 
 
     @Override
@@ -234,11 +234,11 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
 
                  for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                         EventClass e = snapshot.getValue(EventClass.class);
-                        contacts.add(new Contact(e.eventname, e.eventdate));
+                        contacts.add(e);
                     }
 
                     //Link recyclerview variable to xml
-                    RecyclerViewAdapter adapter = new RecyclerViewAdapter (contacts, AvailableEvents.this, AvailableEvents.this);//Linking the adapter to recyclerView,
+                    RecyclerViewAdapter adapter = new RecyclerViewAdapter (contacts, AvailableEvents.this);//Linking the adapter to recyclerView,
                     recyclerView.setAdapter(adapter);
                 }
 
@@ -257,16 +257,5 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this)); //Setting the layout manager, commonly used is linear
 */        }
-    }
-
-    @Override
-    public void onNoteClick(int position) {
-
-        contacts.get(position);
-
-        Intent infointent = new Intent(this, EventDetails.class);
-
-        startActivity(infointent);
-
     }
 }
