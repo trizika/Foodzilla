@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class SpottingInfo extends AppCompatActivity {
 
@@ -16,6 +17,7 @@ public class SpottingInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spotting_info);
 
+        String picReference = getIntent().getStringExtra("picReference");
 
     }
     @Override

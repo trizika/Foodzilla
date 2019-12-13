@@ -2,49 +2,61 @@ package com.example.foodzilla;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.ResultReceiver;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-public class SpottingMap extends AppCompatActivity implements View.OnClickListener {
+import java.util.ArrayList;
+import java.util.List;
 
-    Button gtfs1, gtfs2, gtfs3, addFoodSpotting;
-    TextView fs1, fs2, fs3;
+public class SpottingMap extends AppCompatActivity  {
 
-
+    List<FoodSpottingsClass> list;
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spotting_map);
 
-        addFoodSpotting = findViewById(R.id.buttonSubmitsmap);
+        list= new ArrayList<>(); //Creating a new arraylist for my class contacts
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("Spottings");
 
-        gtfs1 = findViewById(R.id.buttonGTFS1);
-        gtfs2 = findViewById(R.id.buttonGTFS2);
-        gtfs3 = findViewById(R.id.buttonGTFS3);
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    FoodSpottingsClass c = snapshot.getValue(FoodSpottingsClass.class);
+                    list.add(c);
+                }
+                recyclerView = findViewById(R.id.spottingsRecycler); //Link recyclerview variable to xml
+                SpottingRecyclerViewAdapter adapter = new SpottingRecyclerViewAdapter(list, SpottingMap.this); //Linking the adapter to recyclerView,
+                //check out the RecyclerViewAdapter (this is the hard part)
+                recyclerView.setAdapter(adapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(SpottingMap.this)); //Setting the layout manager, commonly used
+            }
 
-        fs1 = findViewById(R.id.textViewFS1);
-        fs2 = findViewById(R.id.textViewFS2);
-        fs3 = findViewById(R.id.textViewFS3);
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-        addFoodSpotting.setOnClickListener(this);
-        gtfs1.setOnClickListener(this);
-        gtfs2.setOnClickListener(this);
-        gtfs3.setOnClickListener(this);
+            }
+        });
+
     }
+
+
 
 
     @Override
@@ -66,15 +78,5 @@ public class SpottingMap extends AppCompatActivity implements View.OnClickListen
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(View view) {
 
-        if (view == addFoodSpotting) {
-
-            Intent addspottingintent = new Intent(SpottingMap.this, ReportSpotting.class);
-
-            startActivity(addspottingintent);
-
-        }
-    }
 }

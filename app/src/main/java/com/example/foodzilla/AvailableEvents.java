@@ -1,7 +1,6 @@
 package com.example.foodzilla; //t
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,21 +12,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 public class AvailableEvents extends AppCompatActivity implements View.OnClickListener, RecyclerViewAdapter.OnNoteListener {
@@ -55,7 +47,7 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
         buttonSwitchMenuAvme2.setOnClickListener(this);
         buttonShowAvailableEvents.setOnClickListener(this);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.spottingsRecycler);
         LinearLayoutManager manager = new LinearLayoutManager(this);
 
         recyclerView.setLayoutManager(manager);

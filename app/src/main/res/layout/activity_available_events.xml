@@ -44,7 +44,7 @@
         app:layout_constraintVertical_bias="0.146" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/spottingsRecycler"
         android:layout_width="338dp"
         android:layout_height="354dp"
         android:layout_marginTop="12dp"

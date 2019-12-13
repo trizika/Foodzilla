@@ -10,8 +10,8 @@
         android:id="@+id/textViewTitle"
         android:layout_width="370dp"
         android:layout_height="58dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
         android:text="Current Food Spottings"
         android:textAlignment="center"
         android:textSize="32sp"
@@ -19,80 +19,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewFS2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="76dp"
-        android:text="None"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFS1" />
-
-    <TextView
-        android:id="@+id/textViewFS1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="62dp"
-        android:text="None"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
-
-    <TextView
-        android:id="@+id/textViewFS3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="71dp"
-        android:text="None"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFS2" />
-
-    <Button
-        android:id="@+id/buttonGTFS1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="84dp"
-        android:text="Learn More"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
-
-    <Button
-        android:id="@+id/buttonGTFS3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="84dp"
-        android:text="Learn More"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGTFS2" />
-
-    <Button
-        android:id="@+id/buttonGTFS2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="84dp"
-        android:text="Learn More"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="301dp" />
-
     <Button
         android:id="@+id/buttonSubmitsmap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="86dp"
         android:layout_marginEnd="65dp"
-        android:layout_marginBottom="192dp"
+        android:layout_marginBottom="136dp"
         android:text="Add Food Spotting"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.351"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/spottingsRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.356"
+        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
