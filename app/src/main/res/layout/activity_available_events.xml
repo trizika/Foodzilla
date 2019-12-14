@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.041"
-        tools:text="My Events" />
+        android:text="My Events" />
 
     <Button
         android:id="@+id/buttonAvailableEventsCr2"
@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.041"
-        tools:text="Available Events" />
+        android:text="Available Events" />
 
     <TextView
         android:id="@+id/textViewAvailableEvents"
