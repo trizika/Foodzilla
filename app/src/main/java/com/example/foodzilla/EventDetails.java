@@ -20,11 +20,24 @@ public class EventDetails extends AppCompatActivity {
         setContentView(R.layout.activity_event_details);
 
         textVieweventdateedetails = findViewById(R.id.textView2eventdateedetails);
-        textVieweventnameedetails = findViewById(R.id.textVieweventnameedetails);
-        textVieweventdetailsedetails = findViewById(R.id.textVieweventdetailsedetails);
-        textVieweventtimeedetails = findViewById(R.id.textVieweventtimeedetails);
-        textVieweventlocationedetails = findViewById(R.id.textVieweventlocationedetails);
-        textVieweventinfoedetails = findViewById(R.id.textVieweventinfoedetails);
+        textVieweventnameedetails = findViewById(R.id.textView2eventnameedetails);
+        textVieweventdetailsedetails = findViewById(R.id.textView2eventdateedetails);
+        textVieweventtimeedetails = findViewById(R.id.textView2eventtimeedetails);
+        textVieweventlocationedetails = findViewById(R.id.textView2locationedetails);
+        textVieweventinfoedetails = findViewById(R.id.textView2infoeventdetails);
+
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("name");
+        String date = intent.getStringExtra("date");
+        String location = intent.getStringExtra("location");
+        String time = intent.getStringExtra("time");
+        String info = intent.getStringExtra("info");
+
+        textVieweventnameedetails.setText(name);
+        textVieweventdateedetails.setText(date);
+        textVieweventtimeedetails.setText(time);
+        textVieweventlocationedetails.setText(location);
+        textVieweventinfoedetails.setText(info);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

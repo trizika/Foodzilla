@@ -57,7 +57,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 intent.putExtra("name", Contacts.get(position).eventname);
                 intent.putExtra("location", Contacts.get(position).eventlocation);
                 intent.putExtra("info", Contacts.get(position).eventinfo);
-                intent.putExtra("time", Contacts.get(position).eventinfo);
+                intent.putExtra("time", Contacts.get(position).eventtime);
+
+                mContext.startActivity(intent);
 
 
             }

@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/textViewRName"
-        android:layout_width="wrap_content"
+        android:layout_width="109dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
         android:layout_marginTop="20dp"
@@ -16,9 +16,9 @@
 
     <TextView
         android:id="@+id/textViewRDate"
-        android:layout_width="wrap_content"
+        android:layout_width="99dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:text="TextView" />
 
@@ -26,8 +26,9 @@
         android:id="@+id/ButtonLearnMoreEvents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="250dp"
+        android:layout_marginStart="275dp"
         android:layout_marginTop="5dp"
-        android:text="Learn More" />
+        android:text="Learn More"
+        android:textSize="8sp" />
 
 </RelativeLayout>
