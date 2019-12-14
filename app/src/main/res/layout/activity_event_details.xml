@@ -12,7 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="165dp"
         android:layout_marginTop="61dp"
+        android:drawableTint="#FFFFFF"
         android:text="Event Details"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,8 +22,8 @@
         android:id="@+id/textVieweventnameedetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="50dp"
         android:text="Event Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textVieweventdetailsedetails" />
@@ -30,8 +32,8 @@
         android:id="@+id/textVieweventdateedetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
         android:text="Event Date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textVieweventnameedetails" />
@@ -41,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="168dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
         android:text="Event Time"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textVieweventdateedetails" />
@@ -51,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="156dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
         android:text="Event Location"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textVieweventtimeedetails" />
@@ -61,18 +63,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="173dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="40dp"
         android:text="Event Info"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textVieweventlocationedetails" />
 
-    <Button
-        android:id="@+id/buttonRsvpedetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="52dp"
-        android:text="RSVP for Event"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textVieweventinfoedetails" />
 </androidx.constraintlayout.widget.ConstraintLayout>
