@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AvailableEvents extends AppCompatActivity implements View.OnClickListener{
@@ -29,7 +30,7 @@ public class AvailableEvents extends AppCompatActivity implements View.OnClickLi
     Button buttonGoToHostEvent, buttonNOTHINGme2, buttonSwitchMenuAvme2, buttonShowAvailableEvents;
     public RecyclerView recyclerView; //recycler view variable
     public RecyclerView.LayoutManager layoutManager; //layout manager for recycler view, need this for a recyclerview
-    public List<EventClass> contacts;
+    public List<EventClass> contacts = new ArrayList<>();
 
 
     @Override

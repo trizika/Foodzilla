@@ -2,27 +2,32 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id='@+id/parentLayout'
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="100dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/textViewRName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="20dp"
 
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="105dp"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/textViewRDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="20dp"
         android:text="TextView" />
+
+    <Button
+        android:id="@+id/ButtonLearnMoreEvents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="5dp"
+        android:text="Learn More" />
 
 </RelativeLayout>
