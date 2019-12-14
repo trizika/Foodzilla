@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textViewfoodzillamain = findViewById(R.id.textVieweventdateedetails);
+        textViewfoodzillamain = findViewById(R.id.textView2eventdateedetails);
         editTextemailmain = findViewById(R.id.editTextemailmain);
         editTextpasswordmain = findViewById(R.id.editTextpasswordmain);
         buttonLoginmain = findViewById(R.id.buttonLoginmain);

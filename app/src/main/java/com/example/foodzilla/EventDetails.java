@@ -8,26 +8,24 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-
+import android.widget.TextView;
+//.
 public class EventDetails extends AppCompatActivity {
+
+    TextView textVieweventdetailsedetails,textVieweventnameedetails, textVieweventdateedetails,textVieweventtimeedetails, textVieweventlocationedetails, textVieweventinfoedetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
 
-
-        Intent intent = getIntent();
-        String date = intent.getStringExtra("date");
-        String location = intent.getStringExtra("location");
+        textVieweventdateedetails = findViewById(R.id.textView2eventdateedetails);
+        textVieweventnameedetails = findViewById(R.id.textVieweventnameedetails);
+        textVieweventdetailsedetails = findViewById(R.id.textVieweventdetailsedetails);
+        textVieweventtimeedetails = findViewById(R.id.textVieweventtimeedetails);
+        textVieweventlocationedetails = findViewById(R.id.textVieweventlocationedetails);
+        textVieweventinfoedetails = findViewById(R.id.textVieweventinfoedetails);
     }
-
-
-
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
