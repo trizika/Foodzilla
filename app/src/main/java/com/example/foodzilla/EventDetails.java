@@ -19,7 +19,7 @@ public class EventDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
 
-        textVieweventdateedetails = findViewById(R.id.textVieweventdateedetails);
+        textVieweventdateedetails = findViewById(R.id.textView2eventdateedetails);
         textVieweventnameedetails = findViewById(R.id.textVieweventnameedetails);
         textVieweventdetailsedetails = findViewById(R.id.textVieweventdetailsedetails);
         textVieweventtimeedetails = findViewById(R.id.textVieweventtimeedetails);
