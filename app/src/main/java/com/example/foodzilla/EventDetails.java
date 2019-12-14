@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
-
+//.
 public class EventDetails extends AppCompatActivity {
 
     TextView textVieweventdetailsedetails,textVieweventnameedetails, textVieweventdateedetails,textVieweventtimeedetails, textVieweventlocationedetails, textVieweventinfoedetails;
