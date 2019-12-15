@@ -8,38 +8,42 @@
 
     <Button
         android:id="@+id/buttonMyEventsCr2"
-        android:layout_width="123dp"
-        android:layout_height="55dp"
+        android:layout_width="132dp"
+        android:layout_height="50dp"
         android:background="@drawable/shape"
         android:text="My Events"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
 
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.041" />
 
     <Button
         android:id="@+id/buttonAvailableEventsCr2"
-        android:layout_width="123dp"
-        android:layout_height="55dp"
+        android:layout_width="155dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shape"
+        android:text="Available Events"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.791"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041"
-        android:background="@drawable/shape"
 
-        android:text="Available Events" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.041" />
 
     <TextView
         android:id="@+id/textViewAvailableEvents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Available Events"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.536"
@@ -60,28 +64,30 @@
         android:id="@+id/buttonRSVPForEvent1"
         android:layout_width="202dp"
         android:layout_height="49dp"
+        android:background="@drawable/shape"
         android:text="Host an Event!"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/shape"
 
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.788" />
 
     <Button
         android:id="@+id/buttonShowAvailableEvents"
-        android:layout_width="162dp"
-        android:layout_height="55dp"
+        android:layout_width="211dp"
+        android:layout_height="53dp"
+        android:background="@drawable/shape"
         android:text="Show available events"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/shape"
+        app:layout_constraintHorizontal_bias="0.475"
 
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.898" />
+        app:layout_constraintVertical_bias="0.912" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
