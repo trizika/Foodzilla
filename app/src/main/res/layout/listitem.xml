@@ -8,21 +8,28 @@
 
     <Button
         android:id="@+id/infobutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="107dp"
+        android:layout_height="36dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="39dp"
-        android:layout_marginBottom="25dp"
-        android:text="Button" />
+        android:layout_marginBottom="37dp"
+        android:background="@drawable/shape"
+        android:text="Button"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/spottingname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="162dp"
+        android:layout_marginEnd="133dp"
         android:layout_marginBottom="39dp"
         android:layout_toStartOf="@+id/infobutton"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
 </RelativeLayout>

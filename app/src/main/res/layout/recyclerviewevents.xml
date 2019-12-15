@@ -12,7 +12,10 @@
         android:layout_marginStart="150dp"
         android:layout_marginTop="20dp"
 
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewRDate"
@@ -20,15 +23,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/ButtonLearnMoreEvents"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="275dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/shape"
         android:text="Learn More"
-        android:textSize="8sp" />
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
 
 </RelativeLayout>

@@ -11,6 +11,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,17 +21,22 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpottingMap extends AppCompatActivity  {
+public class SpottingMap extends AppCompatActivity implements View.OnClickListener{
 
     List<FoodSpottingsClass> list;
     RecyclerView recyclerView;
+    Button Submit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spotting_map);
+        Submit = findViewById(R.id.buttonSubmitsmap);
+
+        Submit.setOnClickListener(this);
 
         list= new ArrayList<>(); //Creating a new arraylist for my class contacts
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -78,5 +86,10 @@ public class SpottingMap extends AppCompatActivity  {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClick(View v){
+        Intent hi = new Intent(this, ReportSpotting.class);
+        startActivity(hi);
+    }
 
 }
